@@ -12,7 +12,7 @@
 ## **1. Clone Repository**  
 ```bash
 git clone https://github.com/abyalax/Skill-Assesment-Test-Havenwined.git
-cd <NAMA_FOLDER_PROYEK>
+cd Skill-Assesment-Test-Havenwined
 ```
 
 ## **2. Install Dependencies**  
