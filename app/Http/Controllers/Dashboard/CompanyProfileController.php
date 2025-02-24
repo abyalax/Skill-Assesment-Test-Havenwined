@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\DB;
 
 class CompanyProfileController extends Controller {
     /**
@@ -73,12 +72,6 @@ class CompanyProfileController extends Controller {
         Log::info("Update Data :", $data);
         try {
             $updated = $companyProfile->update($data);
-            // $companyProfile->name = $request-> name;
-            // $companyProfile->description = $request-> description;
-            // $companyProfile->email = $request-> email;
-            // $companyProfile->whatsapp = $request-> whatsapp;
-            // $companyProfile->banner = $request-> banner;
-            // $companyProfile->update();
             if ($updated) {
             return Redirect::route('dashboard')->with('success', 'Company profile updated successfully.');
             } else {

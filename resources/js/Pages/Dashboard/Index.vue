@@ -4,11 +4,10 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { usePage } from '@inertiajs/vue3';
 import { Head } from '@inertiajs/vue3';
 
-console.log(usePage().props);
-
 const { props } = usePage();
 const { nama, company } = props
-const { name, whatsapp, banner, email, description } = company
+const { name, whatsapp, banner, email, description, location } = company
+
 </script>
 
 <template>
@@ -28,20 +27,31 @@ const { name, whatsapp, banner, email, description } = company
                     <Carousel :images="banner" />
 
                     <h1>Detail Company Profile</h1>
-                    <div class="p-6 border-2 border-slate-300 grid grid-cols-5 rounded-lg">
-                        <div class="col-span-1">
-                            <h4>Name</h4>
-                            <h4>Description</h4>
-                            <h4>Email</h4>
-                            <h4>Whatsapp</h4>
-                        </div>
-                        <div class="col-span-4">
-                            <p class="text-md">: {{ name }}</p>
-                            <p class="text-md text-balance">: {{ description }}</p>
-                            <p class="text-md">: {{ email }}</p>
-                            <p class="text-md">: {{ whatsapp }}</p>
-                        </div>
-                    </div>
+                    <table class="min-w-full border-collapse border border-slate-300 rounded-lg">
+                        <tbody>
+                            <tr class="border-b border-slate-300">
+                                <th class="px-4 py-2 text-left">Name</th>
+                                <td class="px-4 py-2">: {{ name }}</td>
+                            </tr>
+                            <tr class="border-b border-slate-300">
+                                <th class="px-4 py-2 text-left">Description</th>
+                                <td class="px-4 py-2">: {{ description }} </td>
+                            </tr>
+                            <tr class="border-b border-slate-300">
+                                <th class="px-4 py-2 text-left">Email</th>
+                                <td class="px-4 py-2">: {{ email }}</td>
+                            </tr>
+                            <tr>
+                                <th class="px-4 py-2 text-left">Whatsapp</th>
+                                <td class="px-4 py-2">: {{ whatsapp }}</td>
+                            </tr>
+                            <tr>
+                                <th class="px-4 py-2 text-left">Location</th>
+                                <td class="px-4 py-2">: {{ location }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
 
                 </div>
             </div>

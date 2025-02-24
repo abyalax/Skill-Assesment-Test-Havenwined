@@ -23,6 +23,8 @@
         "@cloudinary/vue": "^1.13.0",
         "@vueuse/head": "^2.0.0",
         "marked": "^15.0.7",
-        "simplemde": "^1.11.2"
+        "simplemde": "^1.11.2",
+        "vditor": "^3.10.9",
+        "vue-markdown-render": "^2.2.1"
     }
 }

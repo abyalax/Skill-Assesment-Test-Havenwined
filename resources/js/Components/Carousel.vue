@@ -1,11 +1,11 @@
 <template>
-    <div class="w-full mx-auto my-10 rounded-xl overflow-hidden">
+    <div :class="`w-full mx-auto my-10 rounded-xl overflow-hidden ${customClass}`">
         <div class="flex flex-nowrap overflow-hidden rounded-xl">
             <div v-for="(item, index) in images" :key="index"
                 class="relative min-w-full w-full flex items-center justify-center"
                 :style="{ transform: `translate(-${currentIndex * 100}%)` }" @mouseover="visible = true"
                 @mouseout="visible = false">
-                <button class="absolute left-0" :class="{ 'opacity-100': visible, 'opacity-0': !visible }"
+                <button class="absolute md:p-2 p-0 left-0" :class="{ 'opacity-100': visible, 'opacity-0': !visible }"
                     @click="prev">
                     <div class="w-10 h-10 flex items-center justify-center bg-white rounded-full">
                         <svg class="text-slate-500 rotate-180" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -16,8 +16,8 @@
                     </div>
                 </button>
                 <!-- Gunakan tag <img> untuk menampilkan gambar -->
-                <img :src="item" alt="Carousel Image" class="rounded-xl w-[90%]" />
-                <button class="absolute right-0" :class="{ 'opacity-100': visible, 'opacity-0': !visible }"
+                <img :src="item" alt="Carousel Image" class="object-center object-cover rounded-xl w-full md:w-[90%] h-full" />
+                <button class="absolute md:p-2 p-0 right-0" :class="{ 'opacity-100': visible, 'opacity-0': !visible }"
                     @click="next">
                     <div class="w-10 h-10 flex items-center justify-center bg-white rounded-full">
                         <svg class="text-slate-500" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -40,6 +40,10 @@ const props = defineProps({
         type: Array,
         required: true,
         default: () => []
+    },
+    customClass: {
+        type: String,
+        required: false
     }
 })
 
