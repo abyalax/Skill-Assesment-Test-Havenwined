@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder {
                     "https://res.cloudinary.com/dllhxulpv/image/upload/v1740329253/haventwined/z9mu5t7fqeaauoahwtg6.png"
                 ]
             ),
+            'location' => 'Jl. Boulevard Raya Gading Serpong, Kabupaten Tangerang ',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

@@ -1,66 +1,116 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# **Dokumentasi Setup Project Skill Assestment Web Company Profile Haventwined**  
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## **1. Clone Repository**  
+```bash
+git clone https://github.com/abyalax/Skill-Assesment-Test-Havenwined.git
+cd <NAMA_FOLDER_PROYEK>
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## **2. Install Dependencies**  
 
-## Learning Laravel
+### **Backend (Laravel)**
+```bash
+composer install
+cp .env.example .env
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### **Frontend (Vue)**
+```bash
+npm install
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## **3. Konfigurasi Environment (`.env`)**  
+Edit file `.env` dan masukkan credential berikut:  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```env
+# URL Cloudinary untuk upload banner
+CLOUDINARY_URL="cloudinary://api_key:secret_key"
 
-## Laravel Sponsors
+# Credential EmailJS
+VITE_SERVICE_ID=service_exampleID
+VITE_TEMPLATE_ID=template_exampleID
+VITE_USER_ID=4_nJ_7TTYexample_USerID
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# Konfigurasi Database
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_haventwined
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-### Premium Partners
+## **4. Generate Key & Migrasi Database**
+```bash
+php artisan key:generate
+php artisan migrate --seed
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## **5. Menjalankan Server Backend & Frontend**  
 
-## Contributing
+### **Terminal 1 - Laravel (Backend)**
+```bash
+php artisan serve
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### **Terminal 2 - Vue (Frontend)**
+```bash
+npm run dev
+```
 
-## Code of Conduct
+## **6. Login ke Dashboard**  
+Akses aplikasi di `http://localhost:8000`.  
+Gunakan kredensial login berikut:  
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Email:** `admin@haventwined.com`  
+- **Password:** `password1234`  
 
-## Security Vulnerabilities
+## **7. Mengelola Company Profile**  
+Setelah login, navigasikan ke **"Manage Company Profile"** di navbar atas untuk mengelola informasi perusahaan.  
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## **8. Struktur Penyimpanan Aset**  
+- **Event dan aset lainnya:** disimpan di `public/images/`  
+- **Banner:** diunggah secara **dinamis** menggunakan **Cloudinary**  
 
-## License
+## **9. Next Development**  
+- Implementasi **CRUD untuk Event Company**  
+- Integrasi dengan fitur tambahan jika diperlukan  
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+### **Tech Stack**  
+
+#### **Frontend (Vue 3 + Vite + Tailwind CSS)**  
+- **Framework:** Vue 3 (SSR)  
+- **Router & State Management:** Inertia.js  
+- **Styling:** Tailwind CSS  
+- **SSR & Rendering:** Vue Server Renderer, @vueuse/head  
+- **Markdown & Editor:** Marked, SimpleMDE, Vditor, Vue Markdown Render  ( untuk fitur events company di next development )
+- **Image Management:** Cloudinary Vue  
+
+#### **Backend (Laravel 10 + Breeze + Sanctum)**  
+- **Framework:** Laravel 10  
+- **Auth & Security:** Laravel Breeze, Sanctum  
+- **Database & ORM:** MySQL, Eloquent  
+- **Image Upload:** Cloudinary Laravel  
+- **API & HTTP Client:** Guzzle  
+- **Routing Helper:** Tightenco Ziggy  
+
+#### **Build & Dev Tools**  
+- **Frontend Bundler:** Vite  
+- **Code Formatting & Testing:** Laravel Pint, PHP CS Fixer, PHPUnit  
+- **Local Dev:** Laravel Sail, Mockery  
+
+🚀 **Stack ini digunakan untuk membangun aplikasi SSR Vue dengan Laravel sebagai backend serta integrasi Cloudinary untuk manajemen gambar.**
+
+### 🚀 **Proyek siap dijalankan!**  
+Jika ada kendala, pastikan semua service sudah berjalan dan environment sudah dikonfigurasi dengan benar.
